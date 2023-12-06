@@ -1,5 +1,6 @@
 package com.tangohub.app.tangohub_events.Tests;
 
+import org.testng.annotations.Test;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 

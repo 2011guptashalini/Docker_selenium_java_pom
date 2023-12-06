@@ -3,6 +3,7 @@ package com.tangohub.app.tangohub_events.TestComponents;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -37,7 +38,7 @@ public class Listeners extends BaseTest implements ITestListener{
 		extentTest.get().fail(result.getThrowable());//
 		
 		try {
-			driver = (WebDriver) result.getTestClass().getRealClass().getField("driver")
+			driver = (ThreadLocal<RemoteWebDriver>) result.getTestClass().getRealClass().getField("driver")
 					.get(result.getInstance());
 			
 		} catch (Exception e1) {

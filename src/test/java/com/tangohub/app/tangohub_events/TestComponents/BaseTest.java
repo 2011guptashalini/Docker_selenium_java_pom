@@ -4,8 +4,8 @@ import org.testng.annotations.AfterMethod;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.HashMap;
@@ -13,65 +13,121 @@ import java.util.List;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.BeforeMethod;
-
+import org.testng.annotations.Parameters;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import com.tangohub.app.tangohub_events.pages.LoginPage;
-import com.tangohub.app.tangohub_events.pages.NewsFeedPage;
+
+
 
 public class BaseTest {
 
-	public WebDriver driver;
+	//public WebDriver driver;
 	public LoginPage loginPage;
 	//public Properties prop = new Properties();
 	
 
-	public WebDriver initializeDriver() throws IOException
+	/*public WebDriver initializeDriver(String browser) throws IOException
 
 	{
 		// properties class
+		String host = getProp("host");
+		//String bName = getProp("browser");
+		DesiredCapabilities cap = new DesiredCapabilities();
 		
-		String bName = getProp("browser");
-		String browserName = System.getProperty("browser")!=null ? System.getProperty("browser"): (bName);
+		//String browserName = System.getProperty("browser")!=null ? System.getProperty("browser"): (bName);
 		//String browserName = prop.getProperty("browser");
 
-		if (browserName.contains("chrome")) {
-			ChromeOptions options = new ChromeOptions();
-			WebDriverManager.chromedriver().setup();
-			if(browserName.contains("headless")){
-			options.addArguments("headless");
-			}		
-			driver = new ChromeDriver(options);
-			driver.manage().window().setSize(new Dimension(1440,900));//full screen
+		if (browser.contains("chrome")) {
+			cap.setBrowserName("chrome");
 
-		} else if (browserName.equalsIgnoreCase("firefox")) {
-			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
+		} else if (browser.equalsIgnoreCase("firefox")) {
+			cap.setBrowserName("firefox");
+
 			// Firefox
-		} else if (browserName.equalsIgnoreCase("edge")) {
+		} else if (browser.equalsIgnoreCase("edge")) {
 			// Edge
-			WebDriverManager.edgedriver().setup();
-			driver = new EdgeDriver();
+			cap.setBrowserName("edge");
 		}
+		//String completeURL = "http://"+host+":4444";
+		String completeURL = "http://localhost:4444";
+		//URL gridUrl = new URL(completeURL);
+		driver = new RemoteWebDriver(new URL(completeURL),cap);
 
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.manage().window().maximize();
+		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		//driver.manage().window().maximize();
 		return driver;
 
 	}
 	
+	@BeforeMethod(alwaysRun=true)
+	@Parameters("browser")
+	public LoginPage launchApplication() throws IOException
+	{
+		
+		driver = initializeDriver("browser");
+		loginPage = new LoginPage(driver);
+		
+		String url = getProp("url");
+
+		loginPage.goTo(url);
+		return loginPage;
+	
+		
+	}*/
+	protected static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<RemoteWebDriver>();
+    public static String remote_url = "http://localhost:4444";
+    public final static int TIMEOUT = 5;
+   
+	    @BeforeMethod
+	    @Parameters("browser")
+	    public void setUp(String browser) throws Exception {
+	    	String url = getProp("url");
+	        if(browser.equalsIgnoreCase("chrome")) {
+	 
+	            ChromeOptions options = new ChromeOptions();
+	            options.addArguments("--start-maximized");
+	            options.addArguments("--headless=new");
+	            options.addArguments("--remote-allow-origins=*");
+	            driver.set(new RemoteWebDriver(new URL(remote_url), options));
+	            System.out.println("Browser Started :"+ browser);
+	 
+	        } else if (browser.equalsIgnoreCase("firefox")) {
+	            FirefoxOptions options = new FirefoxOptions();
+	            options.addArguments("--start-maximized");
+	            options.addArguments("-headless");
+	            driver.set(new RemoteWebDriver(new URL(remote_url), options));
+	            System.out.println("Browser Started :"+ browser);
+	 
+	        } else if (browser.equalsIgnoreCase("edge")) {
+	            EdgeOptions options = new EdgeOptions();
+	            options.addArguments("--start-maximized");
+	            options.addArguments("--headless=new");
+	            driver.set(new RemoteWebDriver(new URL(remote_url), options));
+	            System.out.println("Browser Started :"+ browser);
+	 
+	        } else {
+	            throw new Exception ("Browser is not correct");
+	        }
+	 
+	        driver.get().get(url);	        
+	        driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+	    }
+	 
+	  public WebDriver getDriver() {
+	        return driver.get();
+	    }
+	    
+	    
 	public List<HashMap<String, String>> getJsonDataToMap(String filePath) throws IOException
 	{
 		//read json to string
@@ -89,9 +145,9 @@ public class BaseTest {
 
 	}
 	
-	public String getScreenshot(String testCaseName,WebDriver driver) throws IOException
+	public String getScreenshot(String testCaseName,ThreadLocal<RemoteWebDriver> driver2) throws IOException
 	{
-		TakesScreenshot ts = (TakesScreenshot)driver;
+		TakesScreenshot ts = (TakesScreenshot)driver2;
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		File file = new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png");
 		FileUtils.copyFile(source, file);
@@ -110,25 +166,12 @@ public class BaseTest {
 		return keyValue;
 	}
 	
-	@BeforeMethod(alwaysRun=true)
-	public LoginPage launchApplication() throws IOException
-	{
-		
-		driver = initializeDriver();
-		loginPage = new LoginPage(driver);
-		
-		String url = getProp("url");
 
-		loginPage.goTo(url);
-		return loginPage;
-	
-		
-	}
 	
 	@AfterMethod(alwaysRun=true)
 	
 	public void tearDown()
 	{
-		driver.close();
+		driver.get().close();
 	}
 }

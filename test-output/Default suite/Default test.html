@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sat Nov 18 16:24:06 IST 2023</td>
+<td>Started on:</td><td>Wed Dec 06 18:06:24 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>27 seconds (27789 ms)</td>
+<tr><td>Total time:</td><td>26 seconds (26706 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -79,20 +79,21 @@ function toggleAllBoxes() {
 <td><div><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: //h1[text()=&apos;News Feed&apos;]
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.14.0&apos;, revision: &apos;e5a96349ce&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.1&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [cd11e344-3c6e-4f28-9e85-874ef5add0a8, findElement {using=xpath, value=//h1[text()=&apos;News Feed&apos;]}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 98.0.1, moz:accessibilityChecks: false, moz:buildID: 20220313140707, moz:debuggerAddress: localhost:4772, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:processID: 3108, moz:profile: C:\Users\2011g\AppData\Loca..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platformName: windows, platformVersion: 10.0, proxy: Proxy(), se:cdp: ws://localhost:4772/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: cd11e344-3c6e-4f28-9e85-874ef5add0a8
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;14.1&apos;, java.version: &apos;17.0.9&apos;
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Command: [ffecb7af-81ea-4420-bd53-b0e72be6847b, findElement {using=xpath, value=//h1[text()=&apos;News Feed&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: firefox, browserVersion: 120.0, moz:accessibilityChecks: false, moz:buildID: 20231116134553, moz:geckodriverVersion: 0.33.0, moz:headless: false, moz:platformVersion: 6.4.16-linuxkit, moz:processID: 165, moz:profile: /tmp/rust_mozprofiler1L61n, moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:bidiEnabled: false, se:cdp: ws://172.18.0.5:4444/sessio..., se:noVncPort: 7900, se:vnc: ws://172.18.0.5:4444/sessio..., se:vncEnabled: true, se:vncLocalAddress: ws://172.18.0.5:7900, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: ffecb7af-81ea-4420-bd53-b0e72be6847b
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.TracedCommandExecutor.execute(TracedCommandExecutor.java:51)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
 	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
@@ -103,8 +104,10 @@ Session ID: cd11e344-3c6e-4f28-9e85-874ef5add0a8
 	at jdk.proxy2/jdk.proxy2.$Proxy15.isDisplayed(Unknown Source)
 	at com.tangohub.app.tangohub_events.pages.NewsFeedPage.VerifyNewsFeedDisplayed(NewsFeedPage.java:25)
 	at com.tangohub.app.tangohub_events.Tests.LoginTest.submitOrder(LoginTest.java:41)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
@@ -126,24 +129,25 @@ Session ID: cd11e344-3c6e-4f28-9e85-874ef5add0a8
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace59382310", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace59382310'><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: //h1[text()=&apos;News Feed&apos;]
+</pre></div><a href='#' onClick='toggleBox("stack-trace1307810440", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1307810440'><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: //h1[text()=&apos;News Feed&apos;]
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.14.0&apos;, revision: &apos;e5a96349ce&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.1&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [cd11e344-3c6e-4f28-9e85-874ef5add0a8, findElement {using=xpath, value=//h1[text()=&apos;News Feed&apos;]}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 98.0.1, moz:accessibilityChecks: false, moz:buildID: 20220313140707, moz:debuggerAddress: localhost:4772, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:processID: 3108, moz:profile: C:\Users\2011g\AppData\Loca..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platformName: windows, platformVersion: 10.0, proxy: Proxy(), se:cdp: ws://localhost:4772/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: cd11e344-3c6e-4f28-9e85-874ef5add0a8
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;14.1&apos;, java.version: &apos;17.0.9&apos;
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Command: [ffecb7af-81ea-4420-bd53-b0e72be6847b, findElement {using=xpath, value=//h1[text()=&apos;News Feed&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: firefox, browserVersion: 120.0, moz:accessibilityChecks: false, moz:buildID: 20231116134553, moz:geckodriverVersion: 0.33.0, moz:headless: false, moz:platformVersion: 6.4.16-linuxkit, moz:processID: 165, moz:profile: /tmp/rust_mozprofiler1L61n, moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:bidiEnabled: false, se:cdp: ws://172.18.0.5:4444/sessio..., se:noVncPort: 7900, se:vnc: ws://172.18.0.5:4444/sessio..., se:vncEnabled: true, se:vncLocalAddress: ws://172.18.0.5:7900, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: ffecb7af-81ea-4420-bd53-b0e72be6847b
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.TracedCommandExecutor.execute(TracedCommandExecutor.java:51)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
 	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
@@ -154,8 +158,10 @@ Session ID: cd11e344-3c6e-4f28-9e85-874ef5add0a8
 	at jdk.proxy2/jdk.proxy2.$Proxy15.isDisplayed(Unknown Source)
 	at com.tangohub.app.tangohub_events.pages.NewsFeedPage.VerifyNewsFeedDisplayed(NewsFeedPage.java:25)
 	at com.tangohub.app.tangohub_events.Tests.LoginTest.submitOrder(LoginTest.java:41)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
@@ -178,8 +184,8 @@ Session ID: cd11e344-3c6e-4f28-9e85-874ef5add0a8
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>15</td>
-<td>com.tangohub.app.tangohub_events.Tests.LoginTest@65987993</td></tr>
+<td>0</td>
+<td>com.tangohub.app.tangohub_events.Tests.LoginTest@60df60da</td></tr>
 </table><p>
 </body>
 </html>
