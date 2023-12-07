@@ -4,37 +4,13 @@
   <test thread-count="3" parallel="tests" name="Chrome Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.tangohub.app.tangohub_events.Tests.LoginTest">
+      <class name="com.evaluagent.app.Tests.LoginTest">
         <methods>
-          <include name="submitOrder" invocation-numbers="0"/>
           <include name="tearDown"/>
+          <include name="submitOrder"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.tangohub.app.tangohub_events.Tests.LoginTest -->
+      </class> <!-- com.evaluagent.app.Tests.LoginTest -->
     </classes>
   </test> <!-- Chrome Test(failed) -->
-  <test thread-count="3" parallel="tests" name="Firefox Test(failed)">
-    <parameter name="browser" value="firefox"/>
-    <classes>
-      <class name="com.tangohub.app.tangohub_events.Tests.LoginTest">
-        <methods>
-          <include name="submitOrder" invocation-numbers="0"/>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.tangohub.app.tangohub_events.Tests.LoginTest -->
-    </classes>
-  </test> <!-- Firefox Test(failed) -->
-  <test thread-count="3" parallel="tests" name="Edge Test(failed)">
-    <parameter name="browser" value="edge"/>
-    <classes>
-      <class name="com.tangohub.app.tangohub_events.Tests.LoginTest">
-        <methods>
-          <include name="submitOrder" invocation-numbers="0"/>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.tangohub.app.tangohub_events.Tests.LoginTest -->
-    </classes>
-  </test> <!-- Edge Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
