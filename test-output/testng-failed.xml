@@ -7,10 +7,22 @@
       <class name="com.evaluagent.app.Tests.LoginTest">
         <methods>
           <include name="tearDown"/>
-          <include name="submitOrder"/>
+          <include name="submitOrder" invocation-numbers="0"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.evaluagent.app.Tests.LoginTest -->
     </classes>
   </test> <!-- Chrome Test(failed) -->
+  <test thread-count="3" parallel="tests" name="Firefox Test(failed)">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="com.evaluagent.app.Tests.LoginTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="submitOrder" invocation-numbers="0"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.evaluagent.app.Tests.LoginTest -->
+    </classes>
+  </test> <!-- Firefox Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

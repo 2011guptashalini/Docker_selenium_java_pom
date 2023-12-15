@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tangohub.app.tangohub_events.Tests.LoginTest">
+      <class name="com.evaluagent.app.Tests.LoginTest">
         <methods>
-          <include name="submitOrder" invocation-numbers="0"/>
           <include name="tearDown"/>
-          <include name="launchApplication"/>
+          <include name="submitOrder"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- com.tangohub.app.tangohub_events.Tests.LoginTest -->
+      </class> <!-- com.evaluagent.app.Tests.LoginTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

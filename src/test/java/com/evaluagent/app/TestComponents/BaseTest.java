@@ -20,6 +20,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -43,7 +44,7 @@ public class BaseTest {
    
 	    @BeforeMethod
 	    @Parameters("browser")
-	    public LoginPage setUp(String browser) throws Exception {
+	    public LoginPage setUp(@Optional("firefox")String browser) throws Exception {
 	    	String url = getProp("url");
 	        if(browser.equalsIgnoreCase("chrome")) {
 	        	ChromeOptions chromeOptions = new ChromeOptions();
